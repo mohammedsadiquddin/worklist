@@ -1,0 +1,9 @@
+*{
+        margin: 0;
+        padding: 0;
+}
+.about{
+        max-width: 40%;
+        margin: auto;
+        background-color: bisque;
+}
