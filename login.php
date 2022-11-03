@@ -19,7 +19,7 @@
      }
      else{
       echo '<div class="alert alert-danger" role="alert">
-      The password that you have entered is incorrect!
+      The password that you have entered is incorrect!Please Enter the correct password!
     </div>'; 
      }
    }

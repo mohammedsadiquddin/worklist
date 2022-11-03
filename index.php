@@ -7,12 +7,13 @@
 <?php include 'up.php';?>
 
 <?php
-session_start();
+// session_start();
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']==false){
   header("location: login.php");
   exit();
 }
 ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -41,15 +42,15 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']==false){
       </div>
       <div class="modal-body">
       <form action="index.php" method="POST">
-      <input type="hidden" name="snoEdit" id="snoEdit">
+      <input type="text" name="snoEdit" id="snoEdit">
   <div class="mb-3 my-3">
   <label for="titleEdit" class="form-label">Title</label>
-    <input name="titleEdit" type="text" class="form-control" id="titleEdit" aria-describedby="emailHelp" style="width:18vw">
+    <input name="titleEdit" type="text" class="form-control" id="titleEdit" aria-describedby="emailHelp" Required style="width:18vw">
     </div>
   <div class="mb-3">
     <h6>Description</h6>
   <label for="descriptionEdit"></label>
-    <textarea name="descriptionEdit" id="descriptionEdit" cols="20" rows="5" style="width:25vw"></textarea>
+    <textarea name="descriptionEdit" id="descriptionEdit" cols="20" rows="5" Required style="width:25vw"></textarea>
   </div>
   </div>
       <div class="modal-footer" style="display:block;">
@@ -103,22 +104,30 @@ echo '
       </div>
       </nav>';}
       ?>
-<div class="container">
-<h2 style="color:blue">welcome <?php 
-echo $_SESSION['username']?> to WorkList</h2>
+<div class="container" style="display:flex;justify-content:center;">
 <form action="index.php" method="POST">
   <div class="mb-3 my-3">
+  <h2 style="color:maroon">welcome <?php 
+  echo $_SESSION['username']?> to WorkList</h2>
   <h2>Add a note</h2>
     <label for="exampleInputEmail1" class="form-label">Title</label>
-    <input name="title" type="text" class="form-control" id="exampleInputEmail1" Required  aria-describedby="emailHelp" style="width:25vw">
+    <input name="title" type="text" class="form-control" id="exampleInputEmail1" Required aria-describedby="emailHelp" style="width:25vw">
   </div>
   <div class="mb-3">
   <h6>Description</h6>
   <textarea name="description" id="descr" cols="20" rows="5" style="width:40vw" Required></textarea>
   </div>
-  <button type="submit" name="submit" class="btn btn-primary" style="margin-bottom:4vh">Add Note</button>
+  <button type="submit" name="submit" class="btn btn-primary" style="margin-bottom:4vh">submit</button>
 </form>
 </div>
+<!-- <?php
+if(empty($_POST['title']) && empty($_POST['description'])){
+  echo "<div class='alert alert-danger' style='margin-bottom:0'>
+  <strong></strong>you have to fill all the details.
+  </div>";
+}
+?> -->
+
 <div class="container">
   <table class="table" id="myTable">
   <thead>

@@ -1,5 +1,9 @@
 <?php
-$sql="SELECT * FROM `todolist`.`todolist`";
+// session_start();
+$user=$_SESSION['username'];
+
+$sql="SELECT * FROM `todolist`.`todolist` WHERE `todolist`.`name`='$user'";
+
     $result=mysqli_query($con,$sql);
     $sno=0;
     while($row=mysqli_fetch_assoc($result)){

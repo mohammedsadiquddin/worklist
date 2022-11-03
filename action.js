@@ -13,10 +13,14 @@ Array.from(edits).forEach((element)=>{
     $('#editModal').modal('toggle');
   })
 })
+
+
 deletes=document.getElementsByClassName('delete');
     Array.from(deletes).forEach((element)=>{
     element.addEventListener("click",(e)=>{
     sno=e.target.id.substr(1,);
+    // e.target.value="";
+    console.log(e.target.id.substr(1,));
 
     if(confirm("Are you sure you want to delete")){
       console.log("yes");
